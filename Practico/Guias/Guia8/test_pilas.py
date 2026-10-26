@@ -54,5 +54,46 @@ class test_cantidad_elementos(unittest.TestCase):
     p.put(3)
     self.assertEqual(pilas.cantidad_elementos(p),5)
 
+
+class test_buscar_el_maximo(unittest.TestCase):
+  def test_un_elemento(self):
+    p: Pila[int] = Pila()
+    p.put(1)
+    self.assertEqual(pilas.buscar_el_maximo(p),1)
+
+  def test_varios_elementos(self):
+    p: Pila[int] = Pila()
+    p.put(1)
+    p.put(10)
+    p.put(5)
+    p.put(7)
+    p.put(3)
+    self.assertEqual(pilas.buscar_el_maximo(p),10)
+
+  def test_todos_negativos(self):
+    p: Pila[int] = Pila()
+    p.put(-1)
+    p.put(-10)
+    p.put(-5)
+    p.put(-7)
+    p.put(-3)
+    self.assertEqual(pilas.buscar_el_maximo(p),-1)
+
+
+class test_buscar_nota_maxima(unittest.TestCase):
+  def test_un_elemento(self):
+    p: Pila[int] = Pila()
+    p.put(('Juan',7))
+    self.assertEqual(pilas.buscar_nota_maxima(p),('Juan',7))
+
+  def test_varios_elementos(self):
+    p: Pila[int] = Pila()
+    p.put(('Lucia',8))
+    p.put(('Pablo',10))
+    p.put(('Marcos',5))
+    p.put(('Sofia',7))
+    self.assertEqual(pilas.buscar_nota_maxima(p),('Pablo',10))
+
+
 if __name__ == '__main__':
   unittest.main(verbosity=2)
