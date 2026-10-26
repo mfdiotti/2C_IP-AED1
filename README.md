@@ -1,6 +1,8 @@
 # Introducción a la Programación / Algoritmos y Estructuras de Datos I
-- Departamento de Computación, FCEN-UBA
+
+- 2° Cuatrimestre 2026
 - Licenciatura en Ciencias de la Computación
+- Departamento de Computación, FCEN-UBA
 - Materia Obligatoria
 - Plan de estudio 2023
 
