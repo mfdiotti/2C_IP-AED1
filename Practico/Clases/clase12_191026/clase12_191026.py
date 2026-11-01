@@ -14,7 +14,7 @@ def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
     return res
 
 #auxiliares de pila
-def pila_desde_lista (lista: list[T]) -> Pila[T]:
+def pila_desde_lista(lista: list[T]) -> Pila[T]:
     res: Pila[T] = Pila()
     for e in lista:
         res.put(e)
@@ -22,7 +22,7 @@ def pila_desde_lista (lista: list[T]) -> Pila[T]:
 
 pila_desde_lista([1,2,3,4])
 
-def mostrar_pila (p: Pila[T]) -> None:
+def mostrar_pila(p: Pila[T]) -> None:
     pila_temp: Pila[T] = Pila()
 
     while not (p.empty()):
@@ -63,7 +63,7 @@ def armarSecuencideBingo() -> Cola[int]:
     return cola
 
 # Ejercicio 2.13.2
-def pertenece (cadena: list[T], elem:T) -> bool:
+def pertenece(cadena: list[T], elem:T) -> bool:
     for elemento in cadena:
         if elem == elemento:
             return True
@@ -98,12 +98,12 @@ carton = [1,4]
 
 
 #auxiliares de cola
-def cola_desde_lista (lista: list[T]) -> Cola[T]:
+def cola_desde_lista(lista: list[T]) -> Cola[T]:
     cola: Cola[T] = Cola()
     for elemento in lista:
         cola.put(elemento)
     return cola
 
-def mostrar_cola (c: Cola[T]) -> None:
+def mostrar_cola(c: Cola[T]) -> None:
     while not (c.empty()):
         print(c.get())
