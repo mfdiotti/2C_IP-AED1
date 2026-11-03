@@ -1,5 +1,5 @@
 import unittest
-import diccionarios
+from diccionarios import *
 
 
 class TestPromedio(unittest.TestCase):

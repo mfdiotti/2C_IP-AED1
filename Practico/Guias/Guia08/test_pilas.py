@@ -1,5 +1,5 @@
 import unittest
-import pilas
+from pilas import *
 from queue import LifoQueue as Pila
 from typing import TypeVar
 T = TypeVar('T')

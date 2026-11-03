@@ -1,5 +1,5 @@
 import unittest
-import archivos
+from archivos import *
 
 class TestContarLineas(unittest.TestCase):
     def test_contar_lineas_archivo_vacio(self):
