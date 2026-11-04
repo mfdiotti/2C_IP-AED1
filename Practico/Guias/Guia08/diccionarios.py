@@ -48,6 +48,44 @@ def visitar_sitio(historiales: dict[str,Pila[str]], usuario: str, sitio: str) ->
 def navegar_atras(historiales: dict[str,Pila[str]],usuario: str) -> str:
     return historiales[usuario].get()
 
+
+# Ej 18
+# 18.1
+def agregar_producto(inventario: dict[str,dict[str,int | float]], nombre: str, precio: float, cantidad: int) -> None:
+    if nombre not in list(inventario.keys()):
+        nuevo_producto: dict[str,int | float] = {'precio':precio,'cantidad':cantidad}
+        inventario[nombre] = nuevo_producto
+
+
+# 18.2
+def actualizar_stock(inventario: dict[str,dict[str,int | float]], nombre: str, cantidad: int) -> None:
+    if nombre in list(inventario.keys()):
+        producto: dict[str,int | float] = inventario[nombre]
+        producto['cantidad'] = cantidad
+        inventario[nombre] = producto
+
+
+# 18.3
+def actualizar_precio(inventario: dict[str,dict[str,int | float]], nombre: str, precio: float) -> None:
+    if nombre in list(inventario.keys()):
+        producto: dict[str,int | float] = inventario[nombre]
+        producto['precio'] = precio
+        inventario[nombre] = producto
+
+
+# 18.4
+def calcular_valor_inventario(inventario: dict[str,dict[str,int | float]]) -> float:
+    valor_total_inventario: float = 0
+
+    for producto in list(inventario.keys()):
+        precio_cantidad_producto: dict[str,int | float] = inventario[producto]
+        precio = precio_cantidad_producto['precio']
+        cantidad = precio_cantidad_producto['cantidad']
+        valor_stock_producto: float = precio * cantidad
+        valor_total_inventario += valor_stock_producto
+
+    return valor_total_inventario
+
 ### Auxiliar para leer pilas
 def pila_a_lista(p: Pila[T]) -> list[T]:
   pila_temp: Pila[T] = Pila()
