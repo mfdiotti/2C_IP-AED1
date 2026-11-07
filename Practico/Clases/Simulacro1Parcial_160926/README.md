@@ -8,7 +8,7 @@ Simulacro previo al primer parcial, realizado en 2:30h (1h menos que el parcial 
 Simulacro1Parcial_160926/
 ├── README.md
 ├── SolucionT2.hs              # Solucion enviada
-├── Test_template_t2.hs        # Tests enviados
+├── Test_template_t2.hs        # Tests utilizados durante el simulacro
 └── tema2-test-ejX_.hs         # Test brindados post correcion por la catedra
 ```
 ## Funciones Validas
