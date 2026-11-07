@@ -6,6 +6,7 @@ Simulacro previo al primer parcial, realizado en 2:30h (1h menos que el parcial 
 
 ```Tree
 Simulacro1Parcial_160926/
+├── enunciado.md               # Enunciado de ejercicios
 ├── README.md
 ├── SolucionT2.hs              # Solucion enviada
 ├── Test_template_t2.hs        # Tests utilizados durante el simulacro
