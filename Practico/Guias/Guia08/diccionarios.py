@@ -88,15 +88,15 @@ def calcular_valor_inventario(inventario: dict[str,dict[str,int | float]]) -> fl
 
 ### Auxiliar para leer pilas
 def pila_a_lista(p: Pila[T]) -> list[T]:
-  pila_temp: Pila[T] = Pila()
-  res: list[T] = []
-  
-  while not p.empty():
-    ultimo_elemento: T = p.get()
-    pila_temp.put(ultimo_elemento)
-    res.append(ultimo_elemento)
+    pila_temp: Pila[T] = Pila()
+    res: list[T] = []
 
-  while not pila_temp.empty():
-    p.put(pila_temp.get())
+    while not p.empty():
+      ultimo_elemento: T = p.get()
+      pila_temp.put(ultimo_elemento)
+      res.append(ultimo_elemento)
 
-  return res
+    while not pila_temp.empty():
+      p.put(pila_temp.get())
+
+    return res
