@@ -6,6 +6,27 @@
 - Materia Obligatoria
 - Plan de estudio 2023
 
+## Estructura
+```
+2C_IP-AED1/
+│
+├── Practico/
+│   ├── Clases/
+│   │   └── clase##_DDMMAAA/
+│   │       └── archivos_clase
+│   └── Guias/
+│       └── Guia##/
+│           ├── GuiaPractica##_nombre.pdf
+│           └── archivos_guia
+│
+├── Teorico/
+│   ├── ClasePapel2_051126/
+│   │   └── propuesta.py
+│   └── Teorico##.pdf
+│
+└── README.md
+```
+
 ## Objetivos
 - Presentar los conceptos básicos que hacen a la solución algorítmica de problemas correcta y eficiente: especificación, diseño, implementación y testing.
 - Introducir tipos abstractos de datos y estructuras de datos, enfocándose principalmente en el uso de tuplas, listas, pilas y colas.
