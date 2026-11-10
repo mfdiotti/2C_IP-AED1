@@ -81,6 +81,60 @@ def mayuscula_a_minuscula(cadena: str) -> str:
 
     return res
 
+# Ej 20
+def agrupar_por_longitud(nombre_archivo: str) -> dict[int,int]:
+    archivo: TextIO = open(nombre_archivo,'r')
+    lineas: list[int] = archivo.readlines()
+    palabras: list[int] = lista_palabras(lineas)
+
+
+    res: dict[int,int] = {}
+    for palabra in palabras:
+        longitud_palabra: int = len(palabra)
+
+        if longitud_palabra in res.keys():
+            res[longitud_palabra] += 1
+        else:
+            res[longitud_palabra] = 1
+
+    archivo.close()
+
+    return res
+
+# Ej 21
+def la_palabra_mas_frecuente(nombre_archivo: str) -> str:
+    archivo: TextIO = open(nombre_archivo,'r')
+    lineas: list[str] = archivo.readlines()
+    palabras: list[str] = lista_palabras(lineas)
+    palabras_sin_repeticiones: list[str] = elimina_str_repetidos(palabras)
+    palabra_por_cantidad: dict[str,int] = {}
+
+    for palabra in palabras_sin_repeticiones:
+        cantidad: int = 0
+        for cadena in palabras:
+            if cadena == palabra:
+                cantidad += 1
+
+        palabra_por_cantidad[palabra] = cantidad
+
+    mas_frecuente: tuple[str,int] = (list(palabra_por_cantidad.keys())[0],palabra_por_cantidad[list(palabra_por_cantidad.keys())[0]])
+
+    for palabra in palabra_por_cantidad.keys():
+        if palabra_por_cantidad[palabra] > mas_frecuente[1]:
+            mas_frecuente = (palabra,palabra_por_cantidad[palabra])
+
+    archivo.close()
+
+    return mas_frecuente[0]
+
+def elimina_str_repetidos(l: list[str]) -> list[str]:
+    res: list[str] = []
+
+    for cadena in l:
+        if cadena not in res:
+            res.append(cadena)
+    return res
+
 # Ej 22
 def clonar_sin_comentarios(nombre_archivo_entrada: str, nombre_archivo_salida: str) -> None:
     archivo_entrada: TextIO = open(nombre_archivo_entrada,'r')
@@ -109,3 +163,18 @@ def es_comentario(linea: str) -> bool:
 
     return primer_caracter == '#'
 
+# Ej 23
+def invertir_lineas(nombre_archivo_entrada: str, nombre_archivo_salida: str) -> None:
+    archivo_entrada: TextIO = open(nombre_archivo_entrada,'r')
+    lineas_archivo_entrada: list[str] = archivo_entrada.readlines()
+
+    lineas_archivo_salida: list[int] = []
+
+    for linea in lineas_archivo_entrada:
+        lineas_archivo_salida.insert(0,linea)
+
+    archivo_salida: TextIO = open(nombre_archivo_salida,'w')
+    archivo_salida.writelines(lineas_archivo_salida)
+
+    archivo_entrada.close()
+    archivo_salida.close()
