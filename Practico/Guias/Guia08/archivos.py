@@ -178,3 +178,54 @@ def invertir_lineas(nombre_archivo_entrada: str, nombre_archivo_salida: str) -> 
 
     archivo_entrada.close()
     archivo_salida.close()
+
+# Ej 24
+def agregar_frase_al_final(nombre_archivo: str, frase: str) -> None:
+    archivo: TextIO = open(nombre_archivo,'a')
+
+    archivo.write(frase)
+
+    archivo.close()
+
+# Ej 25
+def agregar_frase_al_principio(nombre_archivo: str, frase: str) -> None:
+    archivo: TextIO = open(nombre_archivo,'r')
+    lineas: list[str] = archivo.readlines()
+    archivo.close()
+
+    lineas.insert(0,frase)
+
+    archivo: TextIO = open(nombre_archivo,'w')
+    archivo.writelines(lineas)
+    archivo.close()
+
+
+# Ej 26
+def listar_textos_de_archivo(nombre_archivo: str) -> list[str]:
+    archivo = open(nombre_archivo,'rb')
+    secuencia_bytes = archivo.read()
+    archivo.close()
+
+    res: list[str] = []
+    cadena: str = ''
+    for byte in secuencia_bytes:
+        caracter = chr(byte)
+        if es_caracter_legible(caracter):
+            cadena += caracter
+        else:
+            if len(cadena) > 4:
+                res.append(cadena)
+            cadena = ''
+
+    if len(cadena) > 4:
+        res.append(cadena)
+
+    return res
+
+def es_caracter_legible(c: str) -> bool:
+    es_letra_minus: bool = 'a' <= c and c <= 'z'
+    es_letra_mayus: bool = 'A' <= c and c <= 'Z'
+    es_letra: bool = es_letra_minus or es_letra_mayus
+    es_numero: bool = '0' <= c and c < = '9'
+    es_ascii: bool = es_letra or es_numero or c == '_' or c == ' '
+    return es_ascii
