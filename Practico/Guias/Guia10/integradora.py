@@ -49,3 +49,45 @@ def maximo_de_lista(lista: list[int]) -> int:
             maximo = numero
 
     return maximo
+
+# Ej 2
+def filtrar_codigos_primos(codigos_barra: list[int]) -> list[int]:
+    res: list[int] = []
+
+    for codigo in codigos_barra:
+        if es_primo(codigo % 1000):
+            res.append(codigo)
+
+    return res
+
+def es_primo(entero: int) -> bool:
+    cantidad_divisores: int = 0
+    for i in range(1,entero+1):
+        if entero % i == 0:
+            cantidad_divisores += 1
+
+    return cantidad_divisores == 2
+
+# Ej 3
+def subsecuencia_mas_larga(tipos_pacientes_atendidos: list[str]) -> int:
+    pacientes_buscados: list[str] = ['perro','gato']
+    inicio_actual: int = 0
+    longitud_actual: int = 0
+
+    inicio_subsecuencia_maxima: int = 0
+    longitud_maxima_subsecuencia: int = 0
+
+    for i in range(len(tipos_pacientes_atendidos)):
+        if tipos_pacientes_atendidos[i] in pacientes_buscados:
+            if longitud_actual == 0:
+                inicio_actual = i
+
+            longitud_actual += 1
+
+            if longitud_actual > longitud_maxima_subsecuencia:
+                inicio_subsecuencia_maxima = inicio_actual
+                longitud_maxima_subsecuencia = longitud_actual
+        else:
+            longitud_actual = 0
+
+    return inicio_subsecuencia_maxima
