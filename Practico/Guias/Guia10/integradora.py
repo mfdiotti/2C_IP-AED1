@@ -91,3 +91,47 @@ def subsecuencia_mas_larga(tipos_pacientes_atendidos: list[str]) -> int:
             longitud_actual = 0
 
     return inicio_subsecuencia_maxima
+
+# Ej 4
+def un_responsable_por_turno(grilla_horaria: list[list[str]]) -> list[tuple[bool,bool]]:
+    horarios_fila_por_dia: list[list[str]] = transpuesta(grilla_horaria)
+
+    res: list[tuple[bool,bool]] = []
+
+    for dia in horarios_fila_por_dia:
+        turnos_dia: tuple[bool,bool] = (turno_m(dia),turno_n(dia))
+        res.append(turnos_dia)
+
+    return res
+
+def transpuesta(matriz: list[list[T]]) -> list[list[T]]:
+    res: list[list[T]] = []
+
+    for i in matriz:
+        res.append(columna(matriz,i))
+
+    return res
+
+def columna(matriz: list[list[T]], columna: int) -> list[T]:
+    res: list[T] = []
+
+    for fila in matriz:
+        res.append(fila[columna])
+
+    return res
+
+def turno_m(dia: list[T]) -> bool:
+    i: int = 0
+    while i < 3:
+        if dia[i] != dia[i+1]:
+            return False
+
+    return True
+
+def turno_n(dia: list[T]) -> bool:
+    i: int = 3
+    while i < 7:
+        if dia[i] != dia[i+1]:
+            return False
+
+    return True
